@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .inter-black {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            font-variation-settings:
+                "slnt" 0;
+            font-size: 3rem;
+        }
+
+        .subtitle {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #7a7a7a;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="inter-black" id="title">{TITLE}</h1>
+        <h2 class="subtitle" id="sub">{SUBTITLE}</h2>
+        <p>Jerry the Penguin</p>
+    </div>
+
+    <script type="text/javascript">
+        document.querySelector('a').remove();
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('title').textContent = urlParams.get("title");
+        document.getElementById('sub').textContent = urlParams.get("sub");
+    </script>
+</body>
+
+</html>
