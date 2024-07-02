@@ -98,7 +98,7 @@
             img.classList.add("img");
             img.style.background = `url(${item}) no-repeat center center / cover`;
 
-            let shifting = idx % 2 !== 0 ? "80%" : "10%";
+            let shifting = idx % 2 !== 0 ? "90%" : "20%";
             let rotation = idx % 2 !== 0 ? rand(-5, -10) : rand(5, 10);
 
             img.style.transform = `translate(${shifting}, calc(-50% + ${start + (idx + 1) * -100}px)) rotate(${-rotation}deg)`
