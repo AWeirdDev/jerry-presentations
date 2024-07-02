@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing | Layout</title>
+    <title>Text Images | Layout</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -48,10 +48,11 @@
             position: relative;
         }
 
-        .stack img {
-            width: 450px;
+        .stack .img {
+            width: 400px;
+            height: 280px;
             position: absolute;
-            transform: translate(-50%, -50%);
+            /*transform: translate(-50%, -50%);*/
             border-radius: 12px;
         }
     </style>
@@ -93,15 +94,16 @@
         const start = 0 - (images.length + 1) / 2 * (-100)
 
         images.forEach((item, idx) => {
-            let img = document.createElement("img");
-            img.src = item;
+            let img = document.createElement("div");
+            img.classList.add("img");
+            img.style.background = `url(${item}) no-repeat center center / cover`;
 
-            let shifting = idx % 2 !== 0 ? "-20%" : "-60%";
+            let shifting = idx % 2 !== 0 ? "80%" : "10%";
             let rotation = idx % 2 !== 0 ? rand(-5, -10) : rand(5, 10);
 
             img.style.transform = `translate(${shifting}, calc(-50% + ${start + (idx + 1) * -100}px)) rotate(${-rotation}deg)`
 
-            node.appendChild(img)
+            node.appendChild(img);
         })
     </script>
 </body>
