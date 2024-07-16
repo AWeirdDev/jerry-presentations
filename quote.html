@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the day</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            background: black;
+            color: rgb(248, 248, 248);
+        }
+
+        .centered {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .quote {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white no-repeat center center;
+            background-size: cover;
+            padding: 0;
+        }
+
+        .inter-regular {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "slnt" 0;
+        }
+
+        .inter-light {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal;
+            font-variation-settings: "slnt" 0;
+        }
+
+        .text {
+            font-size: 2.5rem;
+            max-width: 800px;
+            padding: 0;
+            margin: 0;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-clamp: 3;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        span {
+            font-size: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        <div class="quote">
+            <div class="avatar" id="avatar">
+            </div>
+            <div class="text">
+                <p class="inter-regular" id="text">
+                    You're safe, you're seen, and you're heard. Keep going, even when it feels hard.
+                </p>
+                <span class="inter-light" id="by">Jerry by Old Computer</span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const text = document.getElementById("text");
+        const by = document.getElementById("by");
+        const avatar = document.getElementById("avatar");
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        text.innerText = urlParams.get("quote");
+        by.innerText = urlParams.get("author");
+        avatar.style.backgroundImage = `url(${urlParams.get("avatar")})`;
+    </script>
+</body>
+
+</html>
